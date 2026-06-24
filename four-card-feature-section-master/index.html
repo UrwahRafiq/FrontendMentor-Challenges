@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Four card feature section</title>
+
+  <style>
+    body{
+      padding: 2rem 1rem;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: hsl(0, 0%, 100%);
+      text-align: center;
+      color: hsl(234, 12%, 34%);
+    }
+    h1{
+      font-size: 1.5rem;
+      font-weight: 200;
+      margin: 0;
+    }
+    h2{
+      margin: 0;
+      font: 300;
+    }
+    h3{
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    #cards{
+      display: grid;
+      margin: 3rem 0;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .card{
+      border-radius: 0.5rem;
+      width: 16rem;
+      text-align: left;
+      padding: 2rem;
+      box-shadow: 0rem 1rem 2rem hsl(214, 13%, 89%);
+      font-size: 0.9rem;
+      border-top: 0.5rem solid;
+      transition: transform .2s;
+    }
+    img{
+      padding-left: 12rem;
+    }
+    .cyan{
+      border-color: hsl(180, 62%, 55%);
+    }
+    .red{
+      border-color:  hsl(0, 78%, 62%);
+    }
+    .orange{
+      border-color: hsl(34, 97%, 64%) ;
+    }
+    .blue{
+      border-color: hsl(212, 86%, 64%);
+    }
+    p{
+      color: hsl(212, 6%, 44%);
+    } 
+    .card:hover{
+      transform: translateY(-1.5rem);
+    }
+    @media screen and (min-width: 600px){
+      #cards{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        align-items: center;
+      }
+      .card{
+        width: 15rem;
+        height: 9rem;
+        padding: 1.5rem;
+      }
+      .card h2{
+        font-size: 1rem;
+      }
+      .card p{
+        font-size: 0.7rem;
+      }
+      .card img{
+        width: 3rem;
+        height: auto;
+        padding-left: 12rem;
+      }
+      .cyan{ grid-column: 1;}
+      .grid-two{ 
+        display: grid;
+        grid-column: 2;
+        gap: 2rem;
+      }
+      .blue{grid-column: 3; }
+          h3{
+      font-size: 0.8rem;
+    }
+    h1{
+      padding-top: 2rem;
+      font-size: 1.5rem;
+    }
+    h2{
+      font-size: 1.5rem;
+    }
+    span{
+      display: block;
+    }
+    }
+  </style>
+</head>
+<body>
+  
+  <h1>Reliable, efficient delivery</h1>
+  <h2>Powered by Technology</h2>
+
+  <h3>
+    Our Artificial Intelligence powered tools use millions of project data <span></span> points
+    to ensure that your project is successful
+  </h3>
+
+  <div id="cards">
+    <div class="card cyan">
+      <h2>Supervisor</h2>
+      <p>Monitors activity to identify project roadblocks</p>
+      <img src="./images/icon-supervisor.svg" alt="supervisor icon">
+    </div>
+    <div class="grid-two">
+      <div class="card red">
+        <h2>Team Builder</h2>
+        <p>Scans our talent network to create the optimal team for your project</p>
+        <img src="./images/icon-team-builder.svg" alt="team builder icon">
+      </div>
+      <div class="card orange">
+        <h2>Karma</h2>
+        <p>Regularly evaluates our talent to ensure quality</p>
+        <img src="./images/icon-karma.svg" alt="karma icon">
+      </div>
+    </div>
+    <div class="card blue">
+      <h2>Calculator</h2>
+      <p>Uses data from past projects to provide better delivery estimates</p>
+      <img src="./images/icon-calculator.svg" alt="calculator icon">
+    </div>
+  </div>
+
+  
+      <footer class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+      Coded by <a href="#">Urwah Rafiq</a>.
+    </footer>
+</body>
+</html>
