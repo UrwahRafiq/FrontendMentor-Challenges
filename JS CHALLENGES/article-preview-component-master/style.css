@@ -169,7 +169,7 @@ h1{
         border-radius: 0.5rem;
         margin-top: 5rem;
         overflow: visible;
-        box-shadow: 1rem 2rem 1rem hsl(214, 13%, 90%);
+        box-shadow: 1rem 2rem 1rem hsl(213, 22%, 90%);
     }
     #share-container {
         justify-items: stretch;
