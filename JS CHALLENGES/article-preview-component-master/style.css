@@ -12,6 +12,7 @@ body{
     border-radius: 1rem;
     background-color: white;
     overflow: hidden;
+    box-shadow: 0 1rem 1rem hsl(213, 22%, 90%);
 }
 #subSection{
     padding: 0 2rem 1rem 2rem;
@@ -168,6 +169,7 @@ h1{
         border-radius: 0.5rem;
         margin-top: 5rem;
         overflow: visible;
+        box-shadow: 1rem 2rem 1rem hsl(214, 13%, 90%);
     }
     #share-container {
         justify-items: stretch;
