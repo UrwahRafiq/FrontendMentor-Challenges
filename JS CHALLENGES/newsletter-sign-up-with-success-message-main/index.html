@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- srcset is set of available images & their widths, src is the backup image -->
+  <div id="page1">
+    <div id="image">
+      <picture>
+      <!-- 1. Desktop Image (Shown on screens 1024px wide and up) -->
+      <source media="(min-width: 1024px)" srcset="./assets/images/illustration-sign-up-desktop.svg">
+      
+      <!-- 2. Tablet Image (Shown on screens 768px wide up to 1023px) -->
+      <source media="(min-width: 768px)" srcset="./assets/images/illustration-sign-up-tablet.svg">
+      
+      <!-- 3. Fallback/Mobile Image (The base element that holds your ID and alt text) -->
+      <img 
+        src="./assets/images/illustration-sign-up-mobile.svg" 
+        alt="newsletter sign-up form image" 
+        loading="lazy" 
+        id="form-img">
+    </picture>
+      <br>
+    </div>
+    <!-- Sign-up form start -->
+    <div id="subsection">
+      <h1>Stay updated!</h1>
+      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+      <ul>
+        <li>Product discovery and building what matters</li>
+        <li>Measuring to ensure updates are a success</li>
+        <li>And much more!</li>
+      </ul>
+      <form id="form" novalidate>
+        <div id="labels">
+          <label for="email">Email address</label>
+          <div class="error-msg" aria-live="polite"></div>
+        </div>
+        <input id="email" type="email" placeholder="email@company.com" required>
+        <br>
+        <button class="btn" type="submit">Subscribe to monthly newsletter</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sign-up form end -->
+
+  <!-- Success message start -->
+  <div id="success-page">
+    <div id="content">
+      <img src="./assets/images/icon-success.svg" alt="success-icon">
+      <h1>Thanks for subscribing!</h1>
+      <p id="success-p">
+        A confirmation email has been sent to <span id="mail">ash@loremcompany.com</span>.
+        Please open it and click the button inside to confirm your subscription.
+      </p>
+    </div>
+    <button class="btn" id="dismiss-btn">Dismiss message</button>
+  </div>
+
+  <!-- Success message end -->
+</body>
+</html>

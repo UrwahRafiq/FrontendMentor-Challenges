@@ -1,0 +1,352 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* universal selector for global resets & body for text styles & clean performance (faster to inherit styles from 1 main parent element) */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: hsl(234, 29%, 20%);
+    background-color: hsl(0, 0%, 100%);
+}
+
+p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.3em;
+} 
+
+#success-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100vh;
+    padding: 2rem 1.5rem;
+    display: none;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 10rem;   
+}
+
+#success-p {
+    line-height: 1.5em;
+    font-weight: 400;
+}
+
+#mail {
+    font-weight: 800;
+}
+
+#page1 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 45px;
+}
+
+#form-img {
+    width: 100%;
+    height: auto;
+}
+
+#subsection {
+    padding: 0 1.5rem 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+ul {
+    padding-left: 1rem;
+    list-style: none;
+}
+
+ul li {
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.3em;
+    position: relative;
+    margin-left: 1rem;
+    padding-left: 0.8rem;
+}
+
+ul li::before {
+    content: "";
+    position: absolute;
+    background-image: url('./assets/images/icon-list.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: -1.5em;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+#form label {
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin-top: 1rem;
+}
+
+#email {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    width: 100%;
+    border: 1px solid hsl(0, 0%,58%);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    color: hsl(234, 29%, 20%);
+    font-family: 'Roboto', sans-serif;
+}
+
+#email::placeholder {
+    color: hsl(0, 0%,58%);
+}
+
+#email.error {
+    background-color: #ffe8e6;
+    border-color: #e15d51;
+    color: #e15d51;
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+.error-msg.error {
+    font-size: 0.5rem;
+    color: #e15d51;
+    margin-top: 1rem;
+    font-weight: 800;
+}
+
+#labels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    background-color: hsl(234, 29%, 20%);
+    color: hsl(0, 9%, 96%);
+    padding: 1.2rem 2rem;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.3s ease;
+}
+
+/* invisible shadow container */
+.btn::before {
+    content: "";
+    position: absolute;
+    /* hidden behind button */
+    inset: 0px;
+    background-image: linear-gradient(to right, #ff5476, #ff673e);
+    filter: blur(10px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff5476;
+    background-image: linear-gradient(to right, #ff5476, #ff673e);
+    transform: translateY(-10%) scale(1.02);
+}
+
+.btn:hover::before {
+    opacity: 0.7;
+    transform: translateY(6px);
+    inset: -4px;
+}
+
+#success-page.show {
+    display: block;
+}
+
+#page1.show {
+    display: none;
+}
+
+#image {
+    width: 100%;
+}
+
+/* tablet media query */
+@media screen and (min-width: 768px) {
+    body {
+        background-color: hsl(235, 18%, 26%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    #success-page {
+        background: hsl(0, 0%, 100%);
+        width: 50%;
+        height: auto;
+        border-radius: 14px;
+        padding: 3rem;
+        gap: 1rem
+    }
+
+    #content {
+        margin-top: 0;
+        gap: 1rem;
+    }
+
+    #page1 {
+        width: 80%;
+        height: auto;
+        background-color:hsl(0, 0%, 100%);
+        padding: 1.5rem;
+        border-radius: 20px;
+        gap: 10px;
+    }
+
+    #subsection {
+        gap: 1rem;
+        width: 100%;
+        padding: 0;
+    }
+
+    p, ul li {
+        font-size: 1rem;
+    }
+}
+
+/* desktop media query */
+@media screen and (min-width: 1024px) {
+    body {
+        background-color: hsl(235, 18%, 26%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    #success-page {
+        background: hsl(0, 0%, 100%);
+        width: 30%;
+        height: auto;
+        border-radius: 20px;
+        padding: 3rem;
+        gap: 1rem
+    }
+
+    #content {
+        margin-top: 0;
+        gap: 1rem;
+    }
+
+    #success-p {
+            font-size: 1rem;
+    }
+
+    #mail {
+        font-weight: 800;
+    }
+
+    #page1 {
+        background-color: hsl(0, 0%, 100%);
+        width: 70%;
+        max-width: 650px;
+        height: auto;
+        flex-direction: row-reverse;
+        border-radius: 20px;
+        align-items: center;
+        padding: 1rem;
+        gap: 25px;
+    }
+
+    p, ul li {
+        font-size: 0.7rem;
+        line-height: 1.2em;
+    }
+
+    ul li {
+        padding-left: 0.5rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .btn {
+        font-size: 0.65rem;
+        padding: 0.75rem 2rem;
+        margin-top: 1rem;
+    }
+
+    #email {
+        padding: 0.75rem 2rem 0.75rem 1rem;
+        font-size: 0.65rem;
+        margin-top: 5px;
+    }
+
+    #subsection {
+        gap: 0.75rem;
+        width: 55%;
+        padding: 0px 2rem 1rem;
+    }
+
+    #image {
+        width: 45%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #form label {
+        font-size: 0.5rem;
+    }
+
+    ul {
+        padding-left: 0;
+    }
+
+    p {
+        margin-bottom: 0.5rem;
+    }
+
+    ul li::before {
+        width: 1.2em;
+        height: 1.3em;
+    }
+}
+
+/* xxl screen media query */
+@media screen and (min-width: 1440px) {
+    #success-page {
+        max-width: 500px;
+    }
+
+    #page1 {
+        max-width: 650px;
+    }
+}
