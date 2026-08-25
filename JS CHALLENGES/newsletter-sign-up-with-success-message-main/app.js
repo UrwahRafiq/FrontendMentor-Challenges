@@ -16,6 +16,7 @@ let formValidation = () => {
         console.log("correct email: " + email.value);
         formPage.classList.toggle("show");
         successPage.classList.toggle("show");
+        email.value = "";
     }
     else {
         console.log("incorrect email");
