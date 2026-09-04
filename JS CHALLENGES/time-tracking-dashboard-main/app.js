@@ -3,6 +3,9 @@ const grid = document.querySelector('#cards');
 
 let dashboardData = null;
 
+// first page load
+let initialLoad = true;
+
 async function loadData() {
     try {
         const response = await fetch('./data.json');
@@ -16,6 +19,7 @@ async function loadData() {
 
         // default display
         renderCards('weekly');
+        initialLoad = false;
 
     } catch (error) {
         console.error("could not fetch JSON file:", error);
@@ -68,12 +72,11 @@ function renderCards(timeframe) {
         const background = cardStyles[item.title] || {bg: 'bg-gray-400', icon: ''};
 
         const wrapper = document.createElement('div');
-        wrapper.className = `${background.bg} w-full lg:h-full rounded-xl overflow-hidden flex flex-col justify-end bg-no-repeat bg-[left_90%_top_-2%] bg-[30%_auto] min-h-[160px] opacity-0 translateX-[-20%] transition-opacity duration-500 ease-in-out`;
-
-        setTimeout(() => {
-            wrapper.classList.remove('opacity-0');
-            wrapper.classList.add('opacity-100');
-        }, i * 100);
+        if (initialLoad) {
+            wrapper.className = `${background.bg} w-full lg:h-full rounded-xl overflow-hidden flex flex-col justify-end bg-no-repeat bg-[left_90%_top_-2%] bg-[30%_auto] min-h-[160px]`;
+        } else {
+            wrapper.className = `${background.bg} w-full lg:h-full rounded-xl overflow-hidden flex flex-col justify-end bg-no-repeat bg-[left_90%_top_-2%] bg-[30%_auto] min-h-[160px] opacity-0 translate-y-4 transition-opacity duration-500 ease-in-out`;
+        }
 
         if (background.icon) {
             wrapper.style.backgroundImage = `url('${background.icon}')`;
@@ -86,10 +89,11 @@ function renderCards(timeframe) {
         title.textContent = item.title;
         title.className = 'text-sm font-normal tracking-wide';
 
-        const moreBtn = document.createElement('button').appendChild(
-            Object.assign(document.createElement('img'), {src: './images/icon-ellipsis.svg', alt: 'more'})
-        );
+        const moreBtn = document.createElement('button');
         moreBtn.className = 'sm:w-[5%] md:w-[10%] hover:brightness-0 hover:invert';
+
+        const btnIcon = Object.assign(document.createElement('img'), {src: './images/icon-ellipsis.svg', alt: 'more'});
+        moreBtn.append(btnIcon);
 
         const cardLabel = document.createElement('div');
         cardLabel.className = 'flex justify-between items-center text-sm';
@@ -110,12 +114,22 @@ function renderCards(timeframe) {
         card.append(cardLabel, timeData);
         wrapper.append(card);
         grid.append(wrapper);
+
+        if (!initialLoad) {
+            // tells the browswer to run the animation code
+            requestAnimationFrame(() => {
+                // runs code once after a delay
+                setTimeout(() => {
+                    wrapper.classList.remove('opacity-0', 'translate-y-4');
+                }, i * 75);
+            });
+        }
     }); 
 }
 
 buttons.forEach((button) => {
     button.addEventListener('click', (e) => {
-        clickedTimeframe = e.target.getAttribute('category');
+        const clickedTimeframe = e.target.getAttribute('category');
         renderCards(clickedTimeframe);
 
         // active state
