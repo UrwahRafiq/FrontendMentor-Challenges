@@ -23,6 +23,7 @@ module.exports = {
         'fem-navy-900': 'hsl(235, 46%, 20%)',
         'fem-purple-500': 'hsl(235, 45%, 61%)',
         'fem-navy-200': 'hsl(236, 100%, 87%)',
+        'card-hover-color': '#34397b',
       },
       fontFamily: {
         'rubik': ['Rubik', 'sans-serif'],

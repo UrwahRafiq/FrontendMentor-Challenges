@@ -68,14 +68,14 @@ function renderCards(timeframe) {
         const background = cardStyles[item.title] || {bg: 'bg-gray-400', icon: ''};
 
         const wrapper = document.createElement('div');
-        wrapper.className = `${background.bg} w-full lg:h-full rounded-xl overflow-hidden flex flex-col justify-end bg-no-repeat bg-[left_90%_top_-2%] bg-[30%_auto]`;
+        wrapper.className = `${background.bg} w-full lg:h-full rounded-xl overflow-hidden flex flex-col justify-end bg-no-repeat bg-[left_90%_top_-2%] bg-[30%_auto] min-h-[160px]`;
 
         if (background.icon) {
             wrapper.style.backgroundImage = `url('${background.icon}')`;
         }
 
         const card  = document.createElement('div');
-        card.className = 'w-full h-[80%] p-6 bg-fem-navy-900 flex flex-col gap-4 rounded-xl md:justify-center';
+        card.className = 'w-full h-[80%] p-6 bg-fem-navy-900 flex flex-col gap-4 rounded-xl justify-center hover:bg-card-hover-color transition duration-200 ease';
 
         const title = document.createElement('h2');
         title.textContent = item.title;
@@ -84,14 +84,14 @@ function renderCards(timeframe) {
         const moreBtn = document.createElement('button').appendChild(
             Object.assign(document.createElement('img'), {src: './images/icon-ellipsis.svg', alt: 'more'})
         );
-        moreBtn.className = 'sm:w-[5%] md:w-[10%]';
+        moreBtn.className = 'sm:w-[5%] md:w-[10%] hover:brightness-0 hover:invert';
 
         const cardLabel = document.createElement('div');
         cardLabel.className = 'flex justify-between items-center text-sm';
         cardLabel.append(title, moreBtn);
 
         const timeData = document.createElement('div');
-        timeData.className = 'flex lg:flex-col lg:gap-4 md:flex-col md:gap-4 justify-between items-center'
+        timeData.className = 'flex lg:flex-col lg:gap-4 md:flex-col md:gap-4 justify-between items-center md:items-start'
 
         const current = document.createElement('div');
         current.textContent = `${item.timeframes[timeframe].current}hrs`;
