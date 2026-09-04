@@ -63,12 +63,17 @@ function renderCards(timeframe) {
 
     grid.replaceChildren();
 
-    dashboardData.forEach((item) => {
+    dashboardData.forEach((item, i) => {
 
         const background = cardStyles[item.title] || {bg: 'bg-gray-400', icon: ''};
 
         const wrapper = document.createElement('div');
-        wrapper.className = `${background.bg} w-full lg:h-full rounded-xl overflow-hidden flex flex-col justify-end bg-no-repeat bg-[left_90%_top_-2%] bg-[30%_auto] min-h-[160px]`;
+        wrapper.className = `${background.bg} w-full lg:h-full rounded-xl overflow-hidden flex flex-col justify-end bg-no-repeat bg-[left_90%_top_-2%] bg-[30%_auto] min-h-[160px] opacity-0 translateX-[-20%] transition-opacity duration-500 ease-in-out`;
+
+        setTimeout(() => {
+            wrapper.classList.remove('opacity-0');
+            wrapper.classList.add('opacity-100');
+        }, i * 100);
 
         if (background.icon) {
             wrapper.style.backgroundImage = `url('${background.icon}')`;
